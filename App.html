@@ -1,0 +1,16 @@
+<script type="text/babel">
+    const { Switch, Route } = ReactRouterDOM
+    const { AppProvider } = window
+
+    function App() {
+        return (
+            <AppProvider>
+                <Switch>
+                    <Route path="/">
+                        <h1>Hello World</h1>
+                    </Route>
+                </Switch>
+            </AppProvider>
+        )
+    }
+</script>
