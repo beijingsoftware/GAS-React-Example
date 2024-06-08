@@ -1,7 +1,7 @@
 const url = ScriptApp.getService().getUrl()
 
 function doGet(e) {
-    return renderHTMLFile("index")
+    return renderHTMLFile("Index")
 }
 
 function include(fileName) {
