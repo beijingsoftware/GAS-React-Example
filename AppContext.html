@@ -1,7 +1,7 @@
 <script type="text/babel">
     const { createContext, useState, useEffect } = React
 
-    const AppContext = createContext
+    const AppContext = createContext()
 
     const AppProvider = ({ children }) => {
         const [sessionData, setSessionData] = useState(null)
