@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?!= include("Head") ?>
+        <?!= include("AppContext") ?>
+        <?!= include("App") ?>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+</html>
+
+<script type="text/babel">
+    const { BrowserRouter } = ReactRouterDOM
+    ReactDOM.render(
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>,
+        document.getElementById("root")
+    )
+
+    const Utilities = {
+        getUrl: async () => {
+            if (!Utilities.url) {
+                Utilities.url = await Utilities.runScript("getUrl")
+            }
+            return Utilities.url
+        },
+
+        getSessionData: async () => {
+            return Utilities.runScript("GET_SESSION_DATA")
+        },
+
+        runScript: async (functionName, args = []) => {
+            return new Promise((resolve, reject) => {
+                google.script.run
+                    .withSuccessHandler(resolve)
+                    .withFailureHandler(reject)
+                    [functionName](...args)
+            })
+        },
+    }
+</script>
